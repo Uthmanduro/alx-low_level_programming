@@ -1,5 +1,5 @@
-#include <unistd.h>
 #include "main.h"
+
 /**
  * main - Entry point of program
  *
@@ -17,13 +17,4 @@ int main(void)
 	_putchar('r');
 	_putchar('\n');
 	return (0);
-}
-/**
- * _putchar - writes the characte to output
- * @c: the character to print
- * Return: Aways g
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
