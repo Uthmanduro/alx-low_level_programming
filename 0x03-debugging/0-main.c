@@ -1,22 +1,14 @@
-#include "main.h"
-
+#include <main.h>
 /**
- * main - fuction that prints positive ornegative numbers
+ * main - tests function that prints positive or negative 
  *
- * Return: alwas 0
+ * Return: always 0
  */
-void positive_or_negative(int i)
+int main(void)
 {
-	int n;
+	int i;
 
-        srand(time(0));
-        n = rand() - RAND_MAX / 2;
-        if (n > 0)
-                printf("%d is positive\n", n);
-        else if (n == 0)
-                printf("%d is zero\n", n);
-        else if (n < 0)
-                printf("%d is negative\n", n);
-        return (0);
+	i = 98;
+	positive_or_negative(i);
+	return (0);
 }
-
