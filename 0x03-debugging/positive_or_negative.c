@@ -4,19 +4,16 @@
 /**
  * main - fuction that prints positive ornegative numbers
  *
- * Return: alwas 0
  */
-void positive_or_negative(int i)
+void positive_or_negative(int c)
 {
-	int n;
-
-        srand(time(0));
-        n = rand() - RAND_MAX / 2;
-        if (n > 0)
-                printf("%d is positive\n", n);
-        else if (n == 0)
-                printf("%d is zero\n", n);
-        else if (n < 0)
-                printf("%d is negative\n", n);
+	srand(time(0));
+	c = rand() - RAND_MAX / 2;
+	if (c > 0)
+		printf("%d is positive\n", c);
+	else if (c == 0)
+		printf("%d is zero\n", c);
+	else if (c < 0)
+		printf("%d is negative\n", c);
 }
 
