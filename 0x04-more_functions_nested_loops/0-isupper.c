@@ -1,7 +1,11 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * main - prints  whether a function is upper or lower
+ *
+ * _isupper - checks whether a function is upper
+ *
+ * @c: the character to be printed
  *
  * Return: Always 0
  */
@@ -11,7 +15,7 @@ int _isupper(int c)
 	{
 		return (1);
 	}
-	else 
+	else
 	{
 		return (0);
 	}
