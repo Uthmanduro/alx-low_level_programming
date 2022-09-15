@@ -1,8 +1,6 @@
 #include "main.h"
 
 /**
- * main - prints  whether a function is upper or lower
- *
  * _isupper - checks whether a function is upper
  *
  * @c: the character to be printed
