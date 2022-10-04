@@ -1,8 +1,9 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 /**
- * strdup - returns a pointer to a newly allocated space
+ * _strdup - returns a pointer to a newly allocated space
  * @str: pointer to copy
  * Return: temp
  */
@@ -11,7 +12,10 @@ char *_strdup(char *str)
 	char *temp;
 	int i = 0;
 
-	temp = malloc(sizeof(str));
+	if (str == NULL)
+		return (NULL);
+
+	temp = malloc(strlen(str) + 1);
 	if (temp == NULL)
 	{
 		printf("No memory allocated\n");
