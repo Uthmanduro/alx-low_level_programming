@@ -19,6 +19,7 @@ char *create_array(unsigned int size, char c)
 	if (array == NULL)
 	{
 		printf("Not enough memory\n");
+		return (NULL);
 	}
 	while (i < size)
 	{
