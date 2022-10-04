@@ -10,7 +10,7 @@
 char *create_array(unsigned int size, char c)
 {
 	char *array;
-	unsigned int i = 0;
+	unsigned int i;
 
 
 	if (size == 0)
@@ -21,10 +21,9 @@ char *create_array(unsigned int size, char c)
 		printf("Not enough memory\n");
 		return (NULL);
 	}
-	while (i < size)
+	for (i = 0; i < size; i++)
 	{
 		array[i] = c;
-		i++;
 	}
 	return (array);
 }
