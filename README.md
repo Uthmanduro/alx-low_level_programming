@@ -1,1 +1,1 @@
-hello world of c
+beginning of c a low level programming
