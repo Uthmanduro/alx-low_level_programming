@@ -14,17 +14,12 @@ listint_t *add_nodeint(listint_t **head, const int n)
 		printf("NULL");
 		exit(1);
 	}
+	/*if (n == 0)
+		printf("0\n");*/
 	temp->n = n;
+
 	temp->next = NULL;
 	temp->next = *head;
 	*head = temp;
-	if (temp->n == 0)
-        {
-                printf("0\n");
-                temp->next = *head;
-                *head = temp;
-                return (temp);
-        }
-
 	return (temp);
 }
