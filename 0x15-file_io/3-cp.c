@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
 	if (!buf)
 	{
-		dprintf(STDERR_FILENO, "Cant write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	if (argc != 3)
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 	wrto = write(fto, buf, rdfrom);
 	if (fto == -1 || wrto == -1)
 	{
-		dprintf(STDERR_FILENO, "Cant write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	closefile(ffrom);
