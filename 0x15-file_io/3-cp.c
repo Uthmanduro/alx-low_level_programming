@@ -25,7 +25,7 @@ int closefile(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int fto, ffrom, wrto, rdfrom;
+	int fto, ffrom, wrto, rdfrom = 1024;
 	char *buf = malloc(1024);
 
 	if (!buf)
@@ -39,18 +39,21 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	ffrom = open(argv[1], O_RDONLY);
-	rdfrom = read(ffrom, buf, 1024);
-	if (ffrom == -1 || rdfrom == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
 	fto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664 & ~0000);
-	wrto = write(fto, buf, rdfrom);
-	if (fto == -1 || wrto == -1)
+	while (rdfrom == 1024)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		rdfrom = read(ffrom, buf, 1024);
+		if (ffrom == -1 || rdfrom == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+		wrto = write(fto, buf, rdfrom);
+		if (fto == -1 || wrto == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
 	}
 	closefile(ffrom);
 	closefile(fto);
