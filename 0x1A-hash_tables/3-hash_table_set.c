@@ -71,7 +71,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			ht->array[index] = handle_collision(node, current_node);
+			ht->array[index] = handle_collision(node,current_node);
 			return (1);
 		}
 	}
