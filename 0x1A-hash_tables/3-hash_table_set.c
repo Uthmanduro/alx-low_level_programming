@@ -34,6 +34,7 @@ hash_node_t *create_node(const char *key, const char *value)
  * @node: node to be inserted
  */
 void handle_collision(hash_node_t *node, hash_node_t *current_node)
+
 {
 	hash_node_t *temp;
 
@@ -43,9 +44,10 @@ void handle_collision(hash_node_t *node, hash_node_t *current_node)
 		return;
 	}
 	temp = current_node;
-	while (temp->next->next)
+	while (temp->next)
 		temp = temp->next;
 	temp->next = node;
+	return;
 }
 /**
  * hash_table_set - adds an element to the hash table
