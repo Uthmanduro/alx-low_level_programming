@@ -30,13 +30,13 @@ hash_node_t *create_node(const char *key, const char *value)
 }
 /**
  * handle_collision - handles collision if the index are the same
- * @current_node: the node that is the head of the linked list
  * @node: node to be inserted
+ * @current_node: head node
  * Return: a pointer to the updated node
  */
-hash_node_t *handle_collision(hash_node_t *node)
+hash_node_t *handle_collision(hash_node_t *node, hash_node_t *current_node)
 {
-		node->next = node;
+		node->next = current_node;
 		return (node);
 }
 /**
@@ -71,7 +71,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			ht->array[index] = handle_collision(node);
+			ht->array[index] = handle_collision(node, current_node);
 			return (1);
 		}
 	}
