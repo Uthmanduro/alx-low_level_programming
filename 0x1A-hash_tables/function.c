@@ -1,3 +1,4 @@
+#include "stdio.h"
 /**
  * hash_function - creates the index of the key
  *
@@ -75,6 +76,10 @@ void free_table(hash_table_t *table)
  * hash_table_insert - inserts data into the hash table
  * @table: table tha data will be inserted
  * @key: key of the data
- * @value: value of the data to be inserted
- */
-
+ * @value: value of the data to be insert
+*/
+handle_collision(ht, node)
+{
+	node->next = malloc(sizeof(hash_node_t));
+	node->next = 
+}

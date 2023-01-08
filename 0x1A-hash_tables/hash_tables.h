@@ -33,14 +33,13 @@ typedef struct hash_table_s
 	unsigned long int size;
 	hash_node_t **array;
 } hash_table_t;
-unsigned long int hash_function(char *key, unsigned long int size);
-hash_node_t *create_node(char *key, char *value);
 hash_table_t *hash_table_create(unsigned long int size);
-void free_table(hash_table_t *table);
 unsigned long int hash_djb2(const unsigned char *str);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
+hash_node_t *create_node(const char *key, const char *value);
+void handle_collision(hash_node_t *node, hash_node_t *current_node);
 #endif
