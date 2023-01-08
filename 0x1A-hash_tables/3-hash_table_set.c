@@ -37,6 +37,11 @@ void handle_collision(hash_node_t *node, hash_node_t *current_node)
 {
 	hash_node_t *temp;
 
+	if (current_node->next == NULL)
+	{
+		current_node->next = node;
+		return;
+	}
 	temp = current_node;
 	while (temp->next->next)
 		temp = temp->next;
@@ -56,7 +61,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *current_node;
 
 	if (!ht || !key || !value)
-                return (0);
+		return (0);
 	node = create_node(key, value);
 	index = key_index((const unsigned char *)key, ht->size);
 	current_node = ht->array[index];
