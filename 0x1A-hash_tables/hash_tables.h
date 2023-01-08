@@ -41,5 +41,5 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
 hash_node_t *create_node(const char *key, const char *value);
-void handle_collision(hash_node_t *node, hash_node_t *current_node);
+hash_node_t *handle_collision(hash_node_t *node, hash_node_t *current_node);
 #endif
