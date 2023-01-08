@@ -34,21 +34,10 @@ hash_node_t *create_node(const char *key, const char *value)
  * @node: node to be inserted
  * Return: a pointer to the updated node
  */
-hash_node_t *handle_collision(hash_node_t *node, hash_node_t *current_node)
-
+hash_node_t *handle_collision(hash_node_t *node)
 {
-	hash_node_t *temp;
-
-	if (current_node->next == NULL)
-	{
-		current_node->next = node;
-		return (current_node);
-	}
-	temp = current_node;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = node;
-	return (temp);
+		node->next = node;
+		return (node);
 }
 /**
  * hash_table_set - adds an element to the hash table
@@ -82,7 +71,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			ht->array[index] = handle_collision(node, current_node);
+			ht->array[index] = handle_collision(node);
 			return (1);
 		}
 	}
