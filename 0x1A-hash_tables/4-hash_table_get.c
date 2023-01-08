@@ -18,8 +18,16 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	{
 		if (strcmp(node->key, key) == 0)
 		{
-			while (!node->next)
-				return (node->value);
+			return (node->value);
+		}
+		else
+		{
+			while (node->next != NULL)
+			{
+				node = node->next;
+				if (strcmp(node->key, key) == 0)
+					return (node->value);
+			}
 		}
 	}
 	return (NULL);
